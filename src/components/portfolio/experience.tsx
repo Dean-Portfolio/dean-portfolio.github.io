@@ -52,8 +52,8 @@ export function Experience() {
                 aria-hidden="true"
               />
               <Reveal index={i}>
-                <div className="rounded-xl bg-slate-900/60 border border-slate-800/80 p-6 backdrop-blur-md transition-all duration-300 hover:border-slate-700/80 hover:shadow-md hover:shadow-cyan-500/5">
-                  <span className="inline-block rounded-md bg-cyan-950/40 px-2.5 py-1 text-xs font-semibold text-cyan-400 border border-cyan-500/30">
+                <div className="glass-card rounded-xl p-6 shadow-2xl transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.15)]">
+                  <span className="glass-card-sub inline-block rounded-md px-2.5 py-1 text-xs font-semibold text-cyan-400 border border-cyan-500/40">
                     {role.period}
                   </span>
                   <h3 className="mt-3 text-lg font-bold text-slate-100">{role.title}</h3>
