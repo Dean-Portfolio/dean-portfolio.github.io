@@ -46,9 +46,9 @@ export function Hero() {
       id="hero"
       className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-28 pb-20"
     >
-      {/* Grid Pattern Background - Fades out smoothly at the bottom */}
+      {/* Grid Pattern Background - Lovable Bright Grid */}
       <div 
-        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,#1e293b25_1px,transparent_1px),linear-gradient(to_bottom,#1e293b25_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_10%,#000_60%,transparent_100%)]" 
+        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(6,182,212,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(6,182,212,0.08)_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_80%_65%_at_50%_20%,#000_70%,transparent_100%)]" 
         aria-hidden="true" 
       />
 
@@ -73,7 +73,7 @@ export function Hero() {
           {badges.map((badge, i) => (
             <motion.li
               key={badge}
-              className="inline-flex items-center rounded-full border border-slate-700/80 bg-slate-900/80 px-4 py-1.5 text-xs font-medium text-slate-300 shadow-sm backdrop-blur-sm"
+              className="glass-card-sub inline-flex items-center rounded-full px-4 py-1.5 text-xs font-medium text-slate-300 shadow-sm transition-colors hover:border-cyan-500/50"
               animate={{ scale: [1, 1.04, 1] }}
               transition={{ duration: 0.8, delay: 0.5 + i * 0.1, repeat: 0 }}
             >
@@ -90,13 +90,13 @@ export function Hero() {
         >
           <a
             href="#case-studies"
-            className="inline-flex cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-cyan-500 to-emerald-500 px-6 py-3 text-sm font-bold text-slate-950 shadow-md transition-all duration-300 hover:scale-105 hover:opacity-90 hover:shadow-cyan-500/20"
+            className="inline-flex cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-cyan-500 to-emerald-500 px-6 py-3 text-sm font-bold text-slate-950 shadow-md transition-all duration-300 hover:scale-105 hover:opacity-90 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)]"
           >
             View Automated Systems
           </a>
           <a
             href="#contact"
-            className="inline-flex cursor-pointer items-center justify-center rounded-lg border border-slate-700 bg-slate-900/80 px-6 py-3 text-sm font-semibold text-slate-200 transition-all duration-300 hover:scale-105 hover:border-slate-600 hover:bg-slate-800"
+            className="glass-card-sub inline-flex cursor-pointer items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold text-slate-200 transition-all duration-300 hover:scale-105 hover:border-cyan-500/50"
           >
             Book a Systems Audit
           </a>
