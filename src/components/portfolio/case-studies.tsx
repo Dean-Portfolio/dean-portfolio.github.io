@@ -54,17 +54,17 @@ const studies = [
 function CaseImage({ src, alt }: { src: string; alt: string }) {
   const [loaded, setLoaded] = useState(false);
   return (
-    <div className="relative aspect-video w-full overflow-hidden rounded-t-lg">
-      {!loaded ? <div className="shimmer absolute inset-0" aria-hidden="true" /> : null}
+    <div className="relative aspect-video w-full overflow-hidden rounded-t-xl border-b border-slate-800/80">
+      {!loaded ? <div className="shimmer absolute inset-0 bg-slate-800/50" aria-hidden="true" /> : null}
       <img
         src={src}
         alt={alt}
         loading="lazy"
         decoding="async"
         onLoad={() => setLoaded(true)}
-        className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+        className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-primary/0 transition-colors duration-300 group-hover:bg-primary/25" />
+      <div className="absolute inset-0 bg-cyan-500/0 transition-colors duration-300 group-hover:bg-cyan-500/10" />
     </div>
   );
 }
@@ -76,7 +76,7 @@ export function CaseStudies() {
     <section id="case-studies" className="px-6 py-20">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="Enterprise Experience"
+          eyebrow="ENTERPRISE EXPERIENCE"
           title="Featured systems & case studies"
           description="Systems I designed, managed, and hardened inside enterprise operations teams."
         />
@@ -86,28 +86,36 @@ export function CaseStudies() {
             const expanded = open === study.id;
             return (
               <Reveal key={study.id} index={i}>
-                <article className="glass-card group h-full overflow-hidden rounded-lg">
-                  <CaseImage src={study.image} alt={study.alt} />
-                  <div className="p-6">
-                    <ul className="flex flex-wrap gap-2">
-                      {study.tags.map((tag) => (
-                        <li
-                          key={tag}
-                          className="rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground"
-                        >
-                          {tag}
-                        </li>
-                      ))}
-                    </ul>
-                    <h3 className="mt-4 text-lg">{study.title}</h3>
-                    <p className="mt-3 text-sm text-muted-foreground">{study.impact}</p>
+                <article className="group flex flex-col justify-between h-full overflow-hidden rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md transition-all duration-300 hover:border-cyan-500/40 hover:shadow-lg hover:shadow-cyan-500/10">
+                  <div>
+                    <CaseImage src={study.image} alt={study.alt} />
+                    <div className="p-6">
+                      <ul className="flex flex-wrap gap-2">
+                        {study.tags.map((tag) => (
+                          <li
+                            key={tag}
+                            className="rounded-full bg-slate-800/80 px-2.5 py-1 text-xs text-slate-300 border border-slate-700/50"
+                          >
+                            {tag}
+                          </li>
+                        ))}
+                      </ul>
+                      <h3 className="mt-4 text-lg font-semibold text-slate-100 group-hover:text-cyan-400 transition-colors">
+                        {study.title}
+                      </h3>
+                      <p className="mt-3 text-sm text-slate-400 leading-relaxed">
+                        {study.impact}
+                      </p>
+                    </div>
+                  </div>
 
+                  <div className="px-6 pb-6">
                     <button
                       type="button"
                       onClick={() => setOpen(expanded ? null : study.id)}
                       aria-expanded={expanded}
                       aria-controls={`case-detail-${study.id}`}
-                      className="mt-5 inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-primary transition-colors duration-300 hover:brightness-110"
+                      className="inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors duration-200"
                     >
                       {expanded ? "Hide breakdown" : "View breakdown"}
                       <ChevronDown
@@ -127,9 +135,12 @@ export function CaseStudies() {
                           transition={{ duration: 0.4, ease: "easeInOut" }}
                           className="overflow-hidden"
                         >
-                          <ul className="mt-4 space-y-3 border-t border-border pt-4 text-sm text-muted-foreground">
+                          <ul className="mt-4 space-y-3 border-t border-slate-800/80 pt-4 text-xs text-slate-400 leading-relaxed">
                             {study.detail.map((line) => (
-                              <li key={line}>{line}</li>
+                              <li key={line} className="flex items-start">
+                                <span className="mr-2 text-cyan-500">•</span>
+                                <span>{line}</span>
+                              </li>
                             ))}
                           </ul>
                         </motion.div>
