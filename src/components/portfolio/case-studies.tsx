@@ -86,7 +86,7 @@ export function CaseStudies() {
             const expanded = open === study.id;
             return (
               <Reveal key={study.id} index={i}>
-                <article className="group flex flex-col justify-between h-full overflow-hidden rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md transition-all duration-300 hover:border-cyan-500/40 hover:shadow-lg hover:shadow-cyan-500/10">
+                <article className="glass-card group flex flex-col justify-between h-full overflow-hidden rounded-xl shadow-2xl transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.15)]">
                   <div>
                     <CaseImage src={study.image} alt={study.alt} />
                     <div className="p-6">
@@ -94,13 +94,13 @@ export function CaseStudies() {
                         {study.tags.map((tag) => (
                           <li
                             key={tag}
-                            className="rounded-full bg-slate-800/80 px-2.5 py-1 text-xs text-slate-300 border border-slate-700/50"
+                            className="glass-card-sub rounded-full px-2.5 py-1 text-[11px] font-semibold text-cyan-400"
                           >
                             {tag}
                           </li>
                         ))}
                       </ul>
-                      <h3 className="mt-4 text-lg font-semibold text-slate-100 group-hover:text-cyan-400 transition-colors">
+                      <h3 className="mt-4 text-lg font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">
                         {study.title}
                       </h3>
                       <p className="mt-3 text-sm text-slate-400 leading-relaxed">
@@ -115,7 +115,7 @@ export function CaseStudies() {
                       onClick={() => setOpen(expanded ? null : study.id)}
                       aria-expanded={expanded}
                       aria-controls={`case-detail-${study.id}`}
-                      className="inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors duration-200"
+                      className="inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors duration-200"
                     >
                       {expanded ? "Hide breakdown" : "View breakdown"}
                       <ChevronDown
@@ -138,7 +138,7 @@ export function CaseStudies() {
                           <ul className="mt-4 space-y-3 border-t border-slate-800/80 pt-4 text-xs text-slate-400 leading-relaxed">
                             {study.detail.map((line) => (
                               <li key={line} className="flex items-start">
-                                <span className="mr-2 text-cyan-500">•</span>
+                                <span className="mr-2 text-cyan-400 shrink-0">•</span>
                                 <span>{line}</span>
                               </li>
                             ))}
