@@ -63,7 +63,7 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-function Index() {
+export default function Index() {
   return (
     <div className="min-h-screen animate-[fade-in_0.8s_ease-out]">
       <a
