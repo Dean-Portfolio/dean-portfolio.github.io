@@ -57,12 +57,26 @@
   --color-ring: hsl(var(--ring));
 }
 
+@layer utilities {
+  .glass-card {
+    background-color: rgba(19, 28, 49, 0.75) !important;
+    border: 1px solid rgba(51, 65, 85, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+
+  .glass-card-sub {
+    background-color: rgba(10, 16, 30, 0.85) !important;
+    border: 1px solid rgba(30, 41, 59, 0.8) !important;
+  }
+}
+
 /* Custom Tech Grid Pattern from Lovable */
 body {
-  background-color: #0F172A;
+  background-color: #0B0F19;
   background-image: 
-    linear-gradient(to right, rgba(6, 182, 212, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(6, 182, 212, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 182, 212, 0.04) 1px, transparent 1px);
   background-size: 40px 40px;
   color: #F8FAFC;
 }
@@ -72,7 +86,7 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0F172A;
+  background: #0B0F19;
 }
 ::-webkit-scrollbar-thumb {
   background: #06B6D4;
