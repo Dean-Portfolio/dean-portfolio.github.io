@@ -21,7 +21,7 @@ type Group = {
 
 const primary: Group = {
   label: "Growth Automation & CRM",
-  tag: "Primary Focus",
+  tag: "PRIMARY FOCUS",
   items: [
     {
       name: "GoHighLevel",
@@ -41,7 +41,7 @@ const primary: Group = {
 const groups: Group[] = [
   {
     label: "Workflow Orchestration",
-    tag: "Secondary & Expanding",
+    tag: "SECONDARY & EXPANDING",
     items: [
       { name: "Make.com", icon: Repeat },
       { name: "n8n", icon: GitBranch },
@@ -52,7 +52,7 @@ const groups: Group[] = [
   },
   {
     label: "Data & Scripting Foundation",
-    tag: "Core Engineering",
+    tag: "CORE ENGINEERING",
     items: [
       { name: "Python (Regex, Requests, Data Cleaning)", icon: Code2 },
       { name: "Large-Scale Data Transformation", icon: Database },
@@ -63,7 +63,7 @@ const groups: Group[] = [
   },
   {
     label: "Infrastructure & Governance",
-    tag: "Operations",
+    tag: "OPERATIONS",
     items: [
       { name: "AWS (EC2, S3)", icon: Cloud },
       { name: "Azure", icon: Cloud },
@@ -92,24 +92,23 @@ export function TechStack() {
           description="Automation-first tooling backed by six years of enterprise infrastructure practice."
         />
 
-        {/* Primary Focus Card (Top Main Box) */}
+        {/* Primary Focus Card */}
         <Reveal className="mt-12">
-          <div className="rounded-xl border border-slate-800/80 bg-slate-900/80 p-6 backdrop-blur-md sm:p-8 shadow-xl">
+          <div className="glass-card rounded-xl p-6 sm:p-8 shadow-2xl">
             <div className="flex flex-wrap items-center gap-3">
-              <span className="rounded-md bg-cyan-500/10 border border-cyan-500/20 px-2.5 py-1 text-xs font-bold tracking-wider text-cyan-400 uppercase">
+              <span className="rounded bg-cyan-950/80 border border-cyan-500/40 px-2.5 py-1 text-[10px] font-bold tracking-wider text-cyan-400 uppercase">
                 {primary.tag}
               </span>
               <h3 className="text-xl font-bold text-slate-100">{primary.label}</h3>
             </div>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
-              {primary.items.map((item, i) => (
+              {primary.items.map((item) => (
                 <div
                   key={item.name}
-                  className="rounded-lg border border-cyan-500/30 bg-slate-950/80 p-5 transition-all duration-300 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(6,182,212,0.25)]"
-                  style={{ animationDelay: `${i * 0.4}s` }}
+                  className="glass-card-sub rounded-lg p-5 transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.15)]"
                 >
                   <p className="flex items-center gap-2.5 text-base font-bold text-slate-100">
-                    <item.icon className="size-5 text-cyan-400" aria-hidden="true" />
+                    <item.icon className="size-5 text-cyan-400 shrink-0" aria-hidden="true" />
                     {item.name}
                   </p>
                   <p className="mt-2 text-xs leading-relaxed text-slate-400">{item.detail}</p>
@@ -123,24 +122,23 @@ export function TechStack() {
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {groups.map((group, gi) => (
             <Reveal key={group.label} index={gi}>
-              <div className="h-full rounded-xl border border-slate-800/80 bg-slate-900/80 p-6 backdrop-blur-md shadow-xl flex flex-col justify-between">
+              <div className="glass-card flex h-full flex-col justify-between rounded-xl p-6 shadow-2xl">
                 <div>
-                  <span className="text-xs font-bold tracking-wider text-emerald-400 uppercase">
+                  <span className="text-[10px] font-bold tracking-wider text-emerald-400 uppercase">
                     {group.tag}
                   </span>
-                  <h3 className="mt-2 text-base font-bold text-slate-100">{group.label}</h3>
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {group.items.map((item, i) => (
-                      <li
+                  <h3 className="mt-1 text-base font-bold text-slate-100 mb-4">{group.label}</h3>
+                  <div className="flex flex-col gap-2.5">
+                    {group.items.map((item) => (
+                      <div
                         key={item.name}
-                        className="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-950/80 px-3.5 py-1.5 text-xs font-medium text-slate-300 transition-colors hover:border-cyan-500/50 hover:text-slate-100"
-                        style={{ animationDelay: `${i * 0.25}s` }}
+                        className="glass-card-sub flex items-center gap-3 rounded-full px-4 py-2 text-xs font-medium text-slate-200 transition-colors hover:border-cyan-500/50 hover:text-white"
                       >
-                        <item.icon className="size-3.5 text-cyan-400" aria-hidden="true" />
-                        {item.name}
-                      </li>
+                        <item.icon className="size-4 text-cyan-400 shrink-0" aria-hidden="true" />
+                        <span className="truncate">{item.name}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </div>
             </Reveal>
@@ -149,21 +147,21 @@ export function TechStack() {
 
         {/* Certifications Card */}
         <Reveal index={1} className="mt-8">
-          <div className="rounded-xl border border-slate-800/80 bg-slate-900/80 p-6 backdrop-blur-md shadow-xl">
-            <span className="text-xs font-bold tracking-wider text-emerald-400 uppercase">
-              Frameworks &amp; Certifications
+          <div className="glass-card rounded-xl p-6 shadow-2xl">
+            <span className="text-[10px] font-bold tracking-wider text-emerald-400 uppercase block mb-3">
+              FRAMEWORKS &amp; CERTIFICATIONS
             </span>
-            <ul className="mt-4 flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3">
               {certifications.map((cert) => (
-                <li
+                <span
                   key={cert}
-                  className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-950/20 px-4 py-2 text-xs font-semibold text-emerald-400"
+                  className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-950/30 px-4 py-2 text-xs font-semibold text-emerald-400"
                 >
-                  <BadgeCheck className="size-4 text-emerald-400" aria-hidden="true" />
+                  <BadgeCheck className="size-4 text-emerald-400 shrink-0" aria-hidden="true" />
                   {cert}
-                </li>
+                </span>
               ))}
-            </ul>
+            </div>
           </div>
         </Reveal>
       </div>
