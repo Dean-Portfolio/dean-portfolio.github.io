@@ -34,32 +34,36 @@ export function Experience() {
     <section id="experience" className="px-6 py-20">
       <div className="mx-auto max-w-4xl">
         <SectionHeading
-          eyebrow="Track Record"
+          eyebrow="TRACK RECORD"
           title="Professional experience"
           description="Six-plus years running operations, infrastructure, and delivery at enterprise scale."
         />
 
-        <ol className="relative mt-12 space-y-10 border-l border-primary/40 pl-8">
+        <ol className="relative mt-12 space-y-8 border-l border-slate-800 ml-3 sm:ml-6 pl-6 sm:pl-8">
           <span
-            className="pointer-events-none absolute top-0 -left-px h-full w-px bg-primary/60 shadow-[0_0_12px_rgba(6,182,212,0.6)]"
+            className="pointer-events-none absolute top-0 -left-px h-full w-px bg-cyan-500/40 shadow-[0_0_12px_rgba(6,182,212,0.5)]"
             aria-hidden="true"
           />
           {roles.map((role, i) => (
             <li key={role.title} className="relative">
+              {/* Timeline Node Dot */}
               <span
-                className="absolute top-2 -left-[41px] size-3 rounded-full bg-primary shadow-[0_0_14px_rgba(6,182,212,0.8)]"
+                className="absolute top-7 -left-[31px] sm:-left-[39px] size-3.5 rounded-full border-2 border-slate-950 bg-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.8)]"
                 aria-hidden="true"
               />
               <Reveal index={i}>
-                <div className="glass-card rounded-lg p-6">
-                  <p className="text-sm font-semibold text-secondary">{role.period}</p>
-                  <h3 className="mt-2 text-lg">{role.title}</h3>
-                  <p className="text-sm text-muted-foreground">{role.company}</p>
-                  <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <div className="rounded-xl bg-slate-900/60 border border-slate-800/80 p-6 backdrop-blur-md transition-all duration-300 hover:border-slate-700/80 hover:shadow-md hover:shadow-cyan-500/5">
+                  <span className="inline-block rounded-md bg-cyan-950/40 px-2.5 py-1 text-xs font-semibold text-cyan-400 border border-cyan-500/30">
+                    {role.period}
+                  </span>
+                  <h3 className="mt-3 text-lg font-bold text-slate-100">{role.title}</h3>
+                  <p className="text-sm font-medium text-slate-400 mb-4">{role.company}</p>
+                  
+                  <ul className="space-y-2.5 text-sm text-slate-300">
                     {role.points.map((point) => (
-                      <li key={point} className="flex gap-2">
-                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                        {point}
+                      <li key={point} className="flex items-start gap-2.5">
+                        <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-400" aria-hidden="true" />
+                        <span className="leading-relaxed text-slate-300">{point}</span>
                       </li>
                     ))}
                   </ul>
