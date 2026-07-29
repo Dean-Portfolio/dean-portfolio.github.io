@@ -40,16 +40,16 @@ export function SiteHeader() {
 
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50 border-b border-border/60 backdrop-blur-lg transition-all duration-300"
-      style={{ backgroundColor: "color-mix(in oklab, var(--background) 80%, transparent)" }}
+      className="fixed inset-x-0 top-0 z-50 border-b border-slate-800/80 backdrop-blur-lg transition-all duration-300"
+      style={{ backgroundColor: "rgba(15, 23, 42, 0.85)" }}
     >
       <div
         className={`mx-auto flex max-w-6xl items-center justify-between px-6 transition-all duration-300 ${
           scrolled ? "h-[60px]" : "h-20"
         }`}
       >
-        <a href="#hero" className="text-base font-bold tracking-tight">
-          Dean<span className="text-primary">.</span>Turing
+        <a href="#hero" className="text-base font-bold tracking-tight text-white">
+          Dean<span className="text-cyan-400">.</span>Turing
         </a>
 
         <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
@@ -58,13 +58,13 @@ export function SiteHeader() {
               key={link.id}
               href={`#${link.id}`}
               aria-current={active === link.id ? "true" : undefined}
-              className={`relative text-sm transition-colors duration-300 hover:text-foreground ${
-                active === link.id ? "text-foreground" : "text-muted-foreground"
+              className={`relative text-sm transition-colors duration-300 hover:text-white ${
+                active === link.id ? "text-white font-medium" : "text-slate-400"
               }`}
             >
               {link.label}
               <span
-                className={`absolute -bottom-1.5 left-0 h-0.5 w-full origin-left bg-primary transition-transform duration-300 ${
+                className={`absolute -bottom-1.5 left-0 h-0.5 w-full origin-left bg-cyan-400 transition-transform duration-300 ${
                   active === link.id ? "scale-x-100" : "scale-x-0"
                 }`}
               />
@@ -75,7 +75,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-3">
           <a
             href="#contact"
-            className="hidden rounded-lg bg-secondary px-4 py-2 text-sm font-semibold text-secondary-foreground transition-all duration-300 hover:scale-105 hover:brightness-110 sm:inline-flex"
+            className="hidden rounded-lg bg-emerald-500 px-4 py-2 text-sm font-semibold text-slate-950 transition-all duration-300 hover:scale-105 hover:bg-emerald-400 sm:inline-flex"
           >
             Book a Systems Audit
           </a>
@@ -83,7 +83,7 @@ export function SiteHeader() {
             type="button"
             onClick={() => setOpen(true)}
             aria-label="Open navigation menu"
-            className="inline-flex size-11 items-center justify-center rounded-lg border border-border text-foreground md:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-lg border border-slate-700 text-slate-200 md:hidden"
           >
             <Menu className="size-5" aria-hidden="true" />
           </button>
@@ -99,7 +99,7 @@ export function SiteHeader() {
             exit={{ opacity: 0 }}
           >
             <div
-              className="absolute inset-0 bg-background/70"
+              className="absolute inset-0 bg-slate-950/80"
               onClick={() => setOpen(false)}
               aria-hidden="true"
             />
@@ -110,13 +110,13 @@ export function SiteHeader() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="absolute inset-y-0 right-0 flex w-72 flex-col gap-6 border-l border-border bg-card/80 p-6 backdrop-blur-lg"
+              className="absolute inset-y-0 right-0 flex w-72 flex-col gap-6 border-l border-slate-800 bg-slate-900/95 p-6 backdrop-blur-lg"
             >
               <button
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Close navigation menu"
-                className="self-end inline-flex size-11 items-center justify-center rounded-lg border border-border"
+                className="self-end inline-flex size-11 items-center justify-center rounded-lg border border-slate-700 text-slate-200"
               >
                 <X className="size-5" aria-hidden="true" />
               </button>
@@ -125,7 +125,7 @@ export function SiteHeader() {
                   key={link.id}
                   href={`#${link.id}`}
                   onClick={() => setOpen(false)}
-                  className="text-base text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-base text-slate-300 transition-colors hover:text-cyan-400"
                 >
                   {link.label}
                 </a>
@@ -133,7 +133,7 @@ export function SiteHeader() {
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="rounded-lg bg-secondary px-4 py-3 text-center text-sm font-semibold text-secondary-foreground"
+                className="rounded-lg bg-emerald-500 px-4 py-3 text-center text-sm font-semibold text-slate-950 transition-colors hover:bg-emerald-400"
               >
                 Book a Systems Audit
               </a>
