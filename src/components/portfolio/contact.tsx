@@ -43,25 +43,24 @@ export function Contact() {
     }
 
     setSubmitting(true);
-    // TODO: Replace mock submit with EmailJS integration. Add your EmailJS credentials in a .env file (VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY).
     await new Promise((resolve) => setTimeout(resolve, 1200));
     void values;
     setSubmitting(false);
     lastSubmit.current = Date.now();
     toast.success("Request received — I'll reply within one business day.", {
-      icon: <CheckCircle2 className="size-4 text-secondary" aria-hidden="true" />,
+      icon: <CheckCircle2 className="size-4 text-emerald-400" aria-hidden="true" />,
     });
     reset();
   };
 
   const fieldClass =
-    "mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground transition-colors duration-300 focus:border-primary";
+    "mt-2 w-full rounded-lg border border-slate-800 bg-slate-950/80 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 transition-colors duration-300 focus:border-cyan-500/80 focus:outline-none focus:ring-1 focus:ring-cyan-500/80";
 
   return (
     <section id="contact" className="px-6 py-20">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="Contact"
+          eyebrow="CONTACT"
           title="Book a systems audit"
           description="Tell me where the workflow breaks and I'll map the automation path."
         />
@@ -71,11 +70,11 @@ export function Contact() {
             <form
               onSubmit={handleSubmit(onSubmit)}
               noValidate
-              className="glass-card rounded-lg p-6 sm:p-8"
+              className="rounded-xl bg-slate-900/60 border border-slate-800/80 p-6 sm:p-8 backdrop-blur-md shadow-xl"
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className="text-sm font-semibold">
+                  <label htmlFor="name" className="text-xs font-medium text-slate-300">
                     Name
                   </label>
                   <input
@@ -88,14 +87,14 @@ export function Contact() {
                     {...register("name")}
                   />
                   {errors.name ? (
-                    <p role="alert" className="mt-2 text-xs text-destructive">
+                    <p role="alert" className="mt-2 text-xs text-rose-400">
                       {errors.name.message}
                     </p>
                   ) : null}
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="text-sm font-semibold">
+                  <label htmlFor="email" className="text-xs font-medium text-slate-300">
                     Email
                   </label>
                   <input
@@ -108,7 +107,7 @@ export function Contact() {
                     {...register("email")}
                   />
                   {errors.email ? (
-                    <p role="alert" className="mt-2 text-xs text-destructive">
+                    <p role="alert" className="mt-2 text-xs text-rose-400">
                       {errors.email.message}
                     </p>
                   ) : null}
@@ -116,32 +115,38 @@ export function Contact() {
               </div>
 
               <div className="mt-5">
-                <label htmlFor="stack" className="text-sm font-semibold">
+                <label htmlFor="stack" className="text-xs font-medium text-slate-300">
                   Primary stack needed
                 </label>
                 <select
                   id="stack"
                   defaultValue=""
                   aria-invalid={!!errors.stack}
-                  className={fieldClass}
+                  className={`${fieldClass} text-slate-300`}
                   {...register("stack")}
                 >
-                  <option value="" disabled>
+                  <option value="" disabled className="bg-slate-900 text-slate-400">
                     Select an option
                   </option>
-                  <option value="Zapier + GHL">Zapier + GHL</option>
-                  <option value="Python Scripting">Python Scripting</option>
-                  <option value="Other">Other</option>
+                  <option value="Zapier + GHL" className="bg-slate-900 text-slate-200">
+                    Zapier + GHL
+                  </option>
+                  <option value="Python Scripting" className="bg-slate-900 text-slate-200">
+                    Python Scripting
+                  </option>
+                  <option value="Other" className="bg-slate-900 text-slate-200">
+                    Other
+                  </option>
                 </select>
                 {errors.stack ? (
-                  <p role="alert" className="mt-2 text-xs text-destructive">
+                  <p role="alert" className="mt-2 text-xs text-rose-400">
                     {errors.stack.message}
                   </p>
                 ) : null}
               </div>
 
               <div className="mt-5">
-                <label htmlFor="bottleneck" className="text-sm font-semibold">
+                <label htmlFor="bottleneck" className="text-xs font-medium text-slate-300">
                   Project bottleneck
                 </label>
                 <textarea
@@ -153,7 +158,7 @@ export function Contact() {
                   {...register("bottleneck")}
                 />
                 {errors.bottleneck ? (
-                  <p role="alert" className="mt-2 text-xs text-destructive">
+                  <p role="alert" className="mt-2 text-xs text-rose-400">
                     {errors.bottleneck.message}
                   </p>
                 ) : null}
@@ -162,11 +167,11 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="bg-gradient-brand mt-6 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+                className="mt-6 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-emerald-500 px-6 py-3 text-sm font-bold text-slate-950 shadow-md transition-all duration-300 hover:opacity-90 hover:shadow-cyan-500/20 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
               >
                 {submitting ? (
                   <>
-                    <Loader2 className="size-4 animate-spin" aria-hidden="true" />
+                    <Loader2 className="size-4 animate-spin text-slate-950" aria-hidden="true" />
                     Sending…
                   </>
                 ) : (
@@ -180,25 +185,36 @@ export function Contact() {
           </Reveal>
 
           <Reveal index={1}>
-            <div className="glass-card flex h-full flex-col gap-6 rounded-lg p-6 sm:p-8">
+            <div className="flex h-full flex-col justify-between rounded-xl bg-slate-900/60 border border-slate-800/80 p-6 sm:p-8 backdrop-blur-md shadow-xl">
               <div>
-                <h3 className="text-lg">Direct contact</h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Prefer email? Send over your current workflow and I&apos;ll reply with an initial
+                <h3 className="text-lg font-semibold text-slate-100">Direct contact</h3>
+                <p className="mt-2 text-sm text-slate-400 leading-relaxed">
+                  Prefer email? Send over your current workflow and I'll reply with an initial
                   automation read.
                 </p>
+                
+                <a
+                  href="mailto:hello@deanturing.com"
+                  className="mt-6 inline-flex w-full items-center gap-3 rounded-lg border border-cyan-500/40 bg-cyan-950/30 px-4 py-3 text-sm font-semibold text-cyan-400 transition-all duration-300 hover:bg-cyan-500/10 hover:border-cyan-500/60"
+                >
+                  <Mail className="size-4 text-cyan-400" aria-hidden="true" />
+                  hello@deanturing.com
+                </a>
               </div>
-              <a
-                href="mailto:hello@deanturing.com"
-                className="inline-flex items-center gap-3 rounded-lg border border-secondary/60 bg-secondary/10 px-4 py-3 text-sm font-semibold text-secondary transition-all duration-300 hover:scale-[1.02] hover:bg-secondary hover:text-secondary-foreground"
-              >
-                <Mail className="size-4" aria-hidden="true" />
-                hello@deanturing.com
-              </a>
-              <ul className="mt-auto space-y-2 text-sm text-muted-foreground">
-                <li>Available for freelance automation projects</li>
-                <li>Typical reply time: within one business day</li>
-                <li>Every build ships with documentation and SOPs</li>
+
+              <ul className="mt-8 space-y-2.5 text-xs text-slate-400 border-t border-slate-800/80 pt-6">
+                <li className="flex items-center gap-2">
+                  <span className="size-1.5 rounded-full bg-emerald-400" />
+                  <span>Available for freelance automation projects</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="size-1.5 rounded-full bg-cyan-400" />
+                  <span>Typical reply time: within one business day</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="size-1.5 rounded-full bg-cyan-400" />
+                  <span>Every build ships with documentation and SOPs</span>
+                </li>
               </ul>
             </div>
           </Reveal>
