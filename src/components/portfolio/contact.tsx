@@ -54,7 +54,7 @@ export function Contact() {
   };
 
   const fieldClass =
-    "mt-2 w-full rounded-lg border border-slate-800 bg-slate-950/80 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 transition-colors duration-300 focus:border-cyan-500/80 focus:outline-none focus:ring-1 focus:ring-cyan-500/80";
+    "glass-card-sub mt-2 w-full rounded-lg px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 transition-all duration-300 focus:border-cyan-500/80 focus:outline-none focus:ring-1 focus:ring-cyan-500/80";
 
   return (
     <section id="contact" className="px-6 py-20">
@@ -70,11 +70,11 @@ export function Contact() {
             <form
               onSubmit={handleSubmit(onSubmit)}
               noValidate
-              className="rounded-xl bg-slate-900/60 border border-slate-800/80 p-6 sm:p-8 backdrop-blur-md shadow-xl"
+              className="glass-card rounded-xl p-6 sm:p-8 shadow-2xl"
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className="text-xs font-medium text-slate-300">
+                  <label htmlFor="name" className="text-xs font-semibold text-slate-300">
                     Name
                   </label>
                   <input
@@ -94,7 +94,7 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="text-xs font-medium text-slate-300">
+                  <label htmlFor="email" className="text-xs font-semibold text-slate-300">
                     Email
                   </label>
                   <input
@@ -115,7 +115,7 @@ export function Contact() {
               </div>
 
               <div className="mt-5">
-                <label htmlFor="stack" className="text-xs font-medium text-slate-300">
+                <label htmlFor="stack" className="text-xs font-semibold text-slate-300">
                   Primary stack needed
                 </label>
                 <select
@@ -146,7 +146,7 @@ export function Contact() {
               </div>
 
               <div className="mt-5">
-                <label htmlFor="bottleneck" className="text-xs font-medium text-slate-300">
+                <label htmlFor="bottleneck" className="text-xs font-semibold text-slate-300">
                   Project bottleneck
                 </label>
                 <textarea
@@ -167,7 +167,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="mt-6 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-emerald-500 px-6 py-3 text-sm font-bold text-slate-950 shadow-md transition-all duration-300 hover:opacity-90 hover:shadow-cyan-500/20 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+                className="mt-6 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-emerald-500 px-6 py-3 text-sm font-bold text-slate-950 shadow-md transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
               >
                 {submitting ? (
                   <>
@@ -185,9 +185,9 @@ export function Contact() {
           </Reveal>
 
           <Reveal index={1}>
-            <div className="flex h-full flex-col justify-between rounded-xl bg-slate-900/60 border border-slate-800/80 p-6 sm:p-8 backdrop-blur-md shadow-xl">
+            <div className="glass-card flex h-full flex-col justify-between rounded-xl p-6 sm:p-8 shadow-2xl">
               <div>
-                <h3 className="text-lg font-semibold text-slate-100">Direct contact</h3>
+                <h3 className="text-lg font-bold text-slate-100">Direct contact</h3>
                 <p className="mt-2 text-sm text-slate-400 leading-relaxed">
                   Prefer email? Send over your current workflow and I'll reply with an initial
                   automation read.
@@ -195,7 +195,7 @@ export function Contact() {
                 
                 <a
                   href="mailto:hello@deanturing.com"
-                  className="mt-6 inline-flex w-full items-center gap-3 rounded-lg border border-cyan-500/40 bg-cyan-950/30 px-4 py-3 text-sm font-semibold text-cyan-400 transition-all duration-300 hover:bg-cyan-500/10 hover:border-cyan-500/60"
+                  className="glass-card-sub mt-6 inline-flex w-full items-center gap-3 rounded-lg border border-cyan-500/40 px-4 py-3 text-sm font-semibold text-cyan-400 transition-all duration-300 hover:border-cyan-500/80 hover:shadow-[0_0_15px_rgba(6,182,212,0.2)]"
                 >
                   <Mail className="size-4 text-cyan-400" aria-hidden="true" />
                   hello@deanturing.com
